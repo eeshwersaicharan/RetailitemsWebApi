@@ -136,15 +136,69 @@ namespace ItemWebApi.Operations
             return _isSuccess;
 
         }
-        public IEnumerable<Items> GetItemById()
+        public IEnumerable<Items> GetItemById(int _id)
         {
             List<Items> _items = new List<Items>();
+            try
+            {
+                _sqlCommand = new SqlCommand($"SELECT * FROM RetailItems where ItemId={_id}", _sqlConnection);
+                if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                    _sqlConnection.Open();
+
+
+                SqlDataReader read = _sqlCommand.ExecuteReader();
+
+                while (read.Read())
+                {
+
+                    _items.Add(new Items() { Id = read.GetInt32(0), Name = read.GetString(1), Price = read.GetInt32(2), Quantity = read.GetInt32(3), Category = read.GetString(4) });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                    _sqlConnection.Close();
+            }
+
             return _items;
         }
 
-       public IEnumerable<Items> GetItemByCategory()
+       public IEnumerable<Items> GetItemByCategory(string _category)
         {
             List<Items> _items = new List<Items>();
+            try
+            {
+                _sqlCommand = new SqlCommand($"SELECT * FROM RetailItems where ItemCategory='{_category}]", _sqlConnection);
+                if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                    _sqlConnection.Open();
+
+
+                SqlDataReader read = _sqlCommand.ExecuteReader();
+
+                while (read.Read())
+                {
+
+                    _items.Add(new Items() { Id = read.GetInt32(0), Name = read.GetString(1), Price = read.GetInt32(2), Quantity = read.GetInt32(3), Category = read.GetString(4) });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                    _sqlConnection.Close();
+            }
+
             return _items;
         }
     }
