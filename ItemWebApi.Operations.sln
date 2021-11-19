@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApi.Operations", "It
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApi.Itemclass", "ItemWebApi.Itemclass\ItemWebApi.Itemclass.csproj", "{9CE74AAB-AA4E-4C48-9302-B3682FB3235A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApi.CommonConnection", "ItemWebApi.CommonConnection\ItemWebApi.CommonConnection.csproj", "{FF327DFE-D096-43EB-9D55-18C444D88770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9CE74AAB-AA4E-4C48-9302-B3682FB3235A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE74AAB-AA4E-4C48-9302-B3682FB3235A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE74AAB-AA4E-4C48-9302-B3682FB3235A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF327DFE-D096-43EB-9D55-18C444D88770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF327DFE-D096-43EB-9D55-18C444D88770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF327DFE-D096-43EB-9D55-18C444D88770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF327DFE-D096-43EB-9D55-18C444D88770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
