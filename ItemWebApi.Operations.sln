@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApi.Operations", "ItemWebApi.Operations\ItemWebApi.Operations.csproj", "{F8DF11A4-CC12-498A-AF95-35B037E29B79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemWebApi.Operations", "ItemWebApi.Operations\ItemWebApi.Operations.csproj", "{F8DF11A4-CC12-498A-AF95-35B037E29B79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApi.Itemclass", "ItemWebApi.Itemclass\ItemWebApi.Itemclass.csproj", "{9CE74AAB-AA4E-4C48-9302-B3682FB3235A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemWebApi.Itemclass", "ItemWebApi.Itemclass\ItemWebApi.Itemclass.csproj", "{9CE74AAB-AA4E-4C48-9302-B3682FB3235A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemWebApi.CommonConnection", "ItemWebApi.CommonConnection\ItemWebApi.CommonConnection.csproj", "{FF327DFE-D096-43EB-9D55-18C444D88770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemWebApi.CommonConnection", "ItemWebApi.CommonConnection\ItemWebApi.CommonConnection.csproj", "{FF327DFE-D096-43EB-9D55-18C444D88770}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemsWebApi.UserValidation", "ItemsWebApi.UserValidation\ItemsWebApi.UserValidation.csproj", "{9E1594C8-A891-4BA3-9694-7571F188D97B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemsWebAPI", "ItemsWebAPI\ItemsWebAPI.csproj", "{5C1B460B-3097-479F-8DF7-30283E07657A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{FF327DFE-D096-43EB-9D55-18C444D88770}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF327DFE-D096-43EB-9D55-18C444D88770}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF327DFE-D096-43EB-9D55-18C444D88770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1594C8-A891-4BA3-9694-7571F188D97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1594C8-A891-4BA3-9694-7571F188D97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1594C8-A891-4BA3-9694-7571F188D97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1594C8-A891-4BA3-9694-7571F188D97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1B460B-3097-479F-8DF7-30283E07657A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1B460B-3097-479F-8DF7-30283E07657A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1B460B-3097-479F-8DF7-30283E07657A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1B460B-3097-479F-8DF7-30283E07657A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
