@@ -17,7 +17,7 @@ namespace ItemsWebApi.UserValidation
             List<User> _UserList = new List<User>();
             try
             {
-                _sqlCommand = new SqlCommand("Select * from Registration", _sqlConnection);
+             _sqlCommand = new SqlCommand("Select * from Registration", _sqlConnection);
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
                     _sqlConnection.Open();
 
@@ -45,18 +45,18 @@ namespace ItemsWebApi.UserValidation
         }
 
 
-        public object GetUserPasswordByUserName(object _emailId)
+        public string GetUserPasswordByUserName(string _emailId)
         {
-            
-            object password = "";
+
+            string password = "";
             try
             {
-                _sqlCommand = new SqlCommand($"select password1 from Registration where EmailId='{_emailId}", _sqlConnection);
+                _sqlCommand = new SqlCommand($"select password1 from Registration where EmailId='{_emailId}'", _sqlConnection);
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
                     _sqlConnection.Open();
 
 
-                password= _sqlCommand.ExecuteScalar();
+                password = Convert.ToString(_sqlCommand.ExecuteScalar());
 
             }
             catch (Exception ex)
@@ -72,28 +72,38 @@ namespace ItemsWebApi.UserValidation
 
             return password;
         }
-        public bool LoginToNextPage(string _username,string _password)
+        public bool LoginToNextPage(string _emailId,string _password)
         {
             bool isLogin = false;
-            //try
-            //{
-            //    _sqlCommand = new SqlCommand($"select password1 from Registration where EmailId='{_emailId}", _sqlConnection);
-            //    if (_sqlConnection.State == System.Data.ConnectionState.Closed)
-            //        _sqlConnection.Open();
+            try
+            {
+                _sqlCommand = new SqlCommand($"select * from Registration where EmailId='{_emailId}'", _sqlConnection);
+                if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                    _sqlConnection.Open();
 
-            //    isLogin = true;
+                SqlDataReader read = _sqlCommand.ExecuteReader();
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
+                while (read.Read())
+                {
+                    if (_password.Equals(read["password1"]))
+                    {
+                        isLogin = true;
+                    }
+                }
 
-            //}
-            //finally
-            //{
-            //    if (_sqlConnection.State == System.Data.ConnectionState.Open)
-            //        _sqlConnection.Close();
-            //}
+                
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                    _sqlConnection.Close();
+            }
             return isLogin;
 
         }
@@ -102,7 +112,8 @@ namespace ItemsWebApi.UserValidation
           bool  _isSuccess = false;
             try
             {
-                _sqlCommand = new SqlCommand($"Insert into Registration('{user.FirstName}','{user.LastName}','{user.emailId}',{user.Mobileno},'{user.Password}')", _sqlConnection);
+                
+                _sqlCommand = new SqlCommand($"Insert into Registration values('{user.FirstName}','{user.LastName}','{user.emailId}','{user.Mobileno}','{user.Password}')", _sqlConnection);
 
 
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)

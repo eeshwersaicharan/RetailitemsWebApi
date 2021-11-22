@@ -27,23 +27,23 @@ namespace ItemsWebAPI.Controllers
             return _uservalidation.GetAllUsers();
         }
 
-        [HttpGet,Route("api/User/GetPassword/{emailId}")]
-        public Object GetPassword(Object _emailId)
+        [HttpGet,Route("api/User/GetPassword/{_emailId}")]
+        public string GetPassword(string _emailId)
         {
-            IEnumerable<User> _userlist = new List<User>();
-#pragma warning disable CS0253 // Possible unintended reference comparison; right hand side needs cast
-            _userlist = _uservalidation.GetAllUsers().Where(u => u.emailId == _emailId);
-#pragma warning restore CS0253 // Possible unintended reference comparison; right hand side needs cast
-            if (_userlist.Any() == true)
+            IEnumerable<User> _userlist = _uservalidation.GetAllUsers();
+           
+            if(_userlist.Any(u => u.emailId == _emailId))
             {
-                return _userlist.FirstOrDefault();
+                return _uservalidation.GetUserPasswordByUserName(_emailId);
+            }      
+            else
+            {
+                return "InvalidEmail";
             }
-
-            return Enumerable.Empty<User>();
         }
 
-       // [HttpGet, Route("api/User/RegisterNewuser")]
-        [HttpPost, ActionName("api/User/RegisterNewuser")]
+        [HttpGet, Route("api/User/RegisterNewuser/{FirstName}/{LastName}/{emailId}/{Mobileno}/{Password}")]
+      //  [HttpPost, ActionName("api/User/RegisterNewuser")]
         public IEnumerable<User> RegisterNewuser(User _newuser)
         {
             if (_uservalidation.RegisterNewUser(_newuser))
@@ -51,6 +51,16 @@ namespace ItemsWebAPI.Controllers
                 return _uservalidation.GetAllUsers();
             }
             return Enumerable.Empty<User>();
+        }
+
+        [HttpGet, Route("api/User/LoginUser/{_emailid}/{_password}")]
+        public bool LoginUser(string _emailid,string _password)
+        {
+            if ((_uservalidation.LoginToNextPage(_emailid, _password)))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

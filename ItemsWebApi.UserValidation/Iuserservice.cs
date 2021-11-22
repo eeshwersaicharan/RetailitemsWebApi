@@ -7,8 +7,8 @@ namespace ItemsWebApi.UserValidation
     public interface Iuserservice
     {
         IEnumerable<User> GetAllUsers();
-        Object GetUserPasswordByUserName(object emailId);
-        bool LoginToNextPage(string username, string password);
+        string GetUserPasswordByUserName(string emailId);
+        bool LoginToNextPage(string emailId, string password);
         bool RegisterNewUser(User user);
 
     }
