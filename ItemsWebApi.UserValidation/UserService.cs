@@ -1,4 +1,7 @@
-﻿using System;
+﻿// This class contain Methods of All User operations
+//Each Method Performs Each operations , these operations will be executed through User controller 
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using ItemWebApi.Itemclass;

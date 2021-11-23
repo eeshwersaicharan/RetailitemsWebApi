@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+//This class used to assign ConnectionString to one Variable and use it globally across project
+using System;
 
 namespace ItemWebApi.CommonConnection
 {

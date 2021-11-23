@@ -1,4 +1,8 @@
-﻿using System;
+﻿
+//This is the Interface class to Define methods of All Operations 
+
+
+using System;
 using ItemWebApi.Itemclass;
 using System.Collections.Generic;
 

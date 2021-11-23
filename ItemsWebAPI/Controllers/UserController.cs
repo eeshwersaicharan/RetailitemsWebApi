@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -42,7 +44,7 @@ namespace ItemsWebAPI.Controllers
             }
         }
 
-        [HttpGet, Route("api/User/RegisterNewuser/{FirstName}/{LastName}/{emailId}/{Mobileno}/{Password}")]
+        [HttpPost, Route("api/User/RegisterNewuser/{FirstName}/{LastName}/{emailId}/{Mobileno}/{Password}")]
       //  [HttpPost, ActionName("api/User/RegisterNewuser")]
         public IEnumerable<User> RegisterNewuser(User _newuser)
         {

@@ -36,7 +36,7 @@ namespace ItemsWebAPI.Controllers
             return "ItemNotInserted Give Valid ItemData";
         }
 
-        [HttpGet,Route("api/Items/updateitempricebyid/{id}/{changeprice}")]
+        [HttpPut,Route("api/Items/updateitempricebyid/{id}/{changeprice}")]
         public string updateitempricebyid(int id,int changeprice)
         {
             if (_itemoperations.UpdateItemPriceById(id, changeprice))
@@ -74,7 +74,7 @@ namespace ItemsWebAPI.Controllers
             }
             return Enumerable.Empty<Items>();
         }
-        [HttpGet,Route("api/Items/updateitempricebycategory/{category}/{changeinprice}")]
+        [HttpPut,Route("api/Items/updateitempricebycategory/{category}/{changeinprice}")]
         public string updateitempricebycategory(string category,int changeinprice)
         {
             if (_itemoperations.UpdateItemPriceByCategory(category, changeinprice))
@@ -82,6 +82,15 @@ namespace ItemsWebAPI.Controllers
                 return "Price Updated Succesfully";
             }
             return "Price Not Updated";
+        }
+        [HttpGet,Route("api/Items/UpdateItemQuantity/{id}/{quantitychange}")]
+        public string UpdateItemQuantity(int id,int quantitychange)
+        {
+            if (_itemoperations.UpdateItemQuantity(id, quantitychange))
+            {
+                return "Quantity Updated";
+            }
+            return "Quantity not Updated";
         }
     }
 }

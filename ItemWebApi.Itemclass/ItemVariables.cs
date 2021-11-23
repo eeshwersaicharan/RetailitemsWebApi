@@ -1,4 +1,7 @@
-﻿using System;
+﻿//All Properties of Items and User are Defined in this Class
+//these Properies are accessed Throghout the Project
+
+using System;
 
 namespace ItemWebApi.Itemclass
 {
