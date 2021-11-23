@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ItemsWebApi.UserValidation;
+using ItemWebApi.Operations;
 
 namespace ItemsWebAPI
 {
@@ -28,6 +29,7 @@ namespace ItemsWebAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddTransient<Iuserservice, UserService>();
+            services.AddTransient<IitemServices, ItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

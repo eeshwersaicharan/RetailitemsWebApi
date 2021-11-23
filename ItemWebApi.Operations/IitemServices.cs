@@ -12,6 +12,6 @@ namespace ItemWebApi.Operations
 
         bool InsertItem(Items _Item);
         bool DeleteItem(int _Id);
-        bool UpdateItemPrice(int _Id,int _Increment);
+        bool UpdateItemPriceById(int _Id,int _changeinprice);
     }
 }

@@ -51,7 +51,7 @@ namespace ItemWebApi.Operations
 
             try
             {
-                _sqlCommand = new SqlCommand($"Insert into RetailItemsvalues('{_Item.Id}','{_Item.Name}'{_Item.Name},{_Item.Quantity},'{_Item.Category}')", _sqlConnection);
+                _sqlCommand = new SqlCommand($"Insert into RetailItems values('{_Item.Id}','{_Item.Name}',{_Item.Quantity},{_Item.Price},'{_Item.Category}')", _sqlConnection);
 
 
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -76,13 +76,13 @@ namespace ItemWebApi.Operations
             return _isSuccess;
         }
 
-        public bool UpdateItemPrice(int _Id, int _Increment)
+        public bool UpdateItemPriceById(int _Id, int _Changeinprice)
         {
             bool _isSuccess = false;
 
             try
             {
-                _sqlCommand = new SqlCommand($"Update STUDENT SET ItemPrice=ItemnPrice+{_Increment} where Id={_Id}", _sqlConnection);
+                _sqlCommand = new SqlCommand($"Update Retailitems SET ItemPrice=ItemPrice+{_Changeinprice} where ItemId={_Id}", _sqlConnection);
 
 
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
