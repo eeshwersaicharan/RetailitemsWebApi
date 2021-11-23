@@ -105,14 +105,42 @@ namespace ItemWebApi.Operations
             }
             return _isSuccess;
         }
+        public bool UpdateItemPriceByCategory(string _category, int _Changeinprice)
+        {
+            bool _isSuccess = false;
 
+            try
+            {
+                _sqlCommand = new SqlCommand($"Update Retailitems SET ItemPrice=ItemPrice+{_Changeinprice} where ItemCategory='{_category}'", _sqlConnection);
+
+
+                if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                    _sqlConnection.Open();
+
+                _sqlCommand.ExecuteNonQuery();
+
+                _isSuccess = true;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                if (_sqlConnection.State == System.Data.ConnectionState.Open)
+                    _sqlConnection.Close();
+            }
+            return _isSuccess;
+        }
         public bool DeleteItem(int _Id)
         {
             bool _isSuccess = false;
 
             try
             {
-                _sqlCommand = new SqlCommand($"DELETE from STUDENT where Id={_Id}", _sqlConnection);
+                _sqlCommand = new SqlCommand($"DELETE  from Retailitems where ItemId={_Id}", _sqlConnection);
 
 
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -174,7 +202,7 @@ namespace ItemWebApi.Operations
             List<Items> _items = new List<Items>();
             try
             {
-                _sqlCommand = new SqlCommand($"SELECT * FROM RetailItems where ItemCategory='{_category}]", _sqlConnection);
+                _sqlCommand = new SqlCommand($"SELECT * FROM RetailItems where ItemCategory='{_category}'", _sqlConnection);
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
                     _sqlConnection.Open();
 

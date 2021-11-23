@@ -54,5 +54,34 @@ namespace ItemsWebAPI.Controllers
             }
             return "Item Not Deleted";
         }
+        [HttpGet, Route("api/Items/getitembyid/{id}")]
+        public IEnumerable<Items> getitembyid(int id)
+        {
+            IEnumerable<Items> itemslist = _itemoperations.GetAllItems();
+            if(itemslist.Any(i=>i.Id==id))
+            {
+                return _itemoperations.GetItemById(id);
+            }
+            return Enumerable.Empty<Items>();
+        }
+        [HttpGet, Route("api/Items/getitembycategory/{category}")]
+        public IEnumerable<Items> getitembycategory(string category)
+        {
+            IEnumerable<Items> itemslist = _itemoperations.GetAllItems();
+            if (itemslist.Any(i => i.Category == category))
+            {
+                return _itemoperations.GetItemByCategory(category);
+            }
+            return Enumerable.Empty<Items>();
+        }
+        [HttpGet,Route("api/Items/updateitempricebycategory/{category}/{changeinprice}")]
+        public string updateitempricebycategory(string category,int changeinprice)
+        {
+            if (_itemoperations.UpdateItemPriceByCategory(category, changeinprice))
+            {
+                return "Price Updated Succesfully";
+            }
+            return "Price Not Updated";
+        }
     }
 }
