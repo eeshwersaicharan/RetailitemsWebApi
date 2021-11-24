@@ -142,18 +142,19 @@ namespace ItemsWebApi.UserValidation
         }
        public bool ResetPassword(string _EmailId, string _oldpassword, string _newpassword)
         {
-            List<string> _templist = new List<string>();
+            
             bool _isSuccess = false;
+            
             try
-            {
-
-                _sqlCommand = new SqlCommand($"Update Registration SET Password1='{_newpassword}' where EmailId='{_EmailId}' and Password1='{_oldpassword}'", _sqlConnection);
-
+            { 
+                _sqlCommand = new SqlCommand($"Update Registration SET Password1='{_newpassword}' where EmailId='{_EmailId}' and Password1='{_oldpassword}'", _sqlConnection);         
 
                 if (_sqlConnection.State == System.Data.ConnectionState.Closed)
                     _sqlConnection.Open();
 
                 _sqlCommand.ExecuteNonQuery();
+
+                _isSuccess = true;
 
             }
             catch (Exception ex)
