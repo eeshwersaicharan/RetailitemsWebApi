@@ -68,5 +68,14 @@ namespace ItemsWebAPI.Controllers
             }
             return false;
         }
+        [HttpPatch,Route("api/User/resetpassword")]
+        public string resetpassword(string emailId,string oldpassword,string newpassword)
+        {
+            if (_uservalidation.ResetPassword(emailId, oldpassword, newpassword))
+            {
+                return "Password Updated Successfully";
+            }
+            return "Password not Updated";
+        }
     }
 }

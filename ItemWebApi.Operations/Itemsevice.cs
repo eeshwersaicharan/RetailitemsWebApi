@@ -38,7 +38,6 @@ namespace ItemWebApi.Operations
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
             }
             finally
             {

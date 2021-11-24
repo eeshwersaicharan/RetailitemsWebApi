@@ -14,6 +14,7 @@ namespace ItemsWebApi.UserValidation
         string GetUserPasswordByUserName(string emailId);
         bool LoginToNextPage(string emailId, string password);
         bool RegisterNewUser(User user);
+        bool ResetPassword(string EmailId ,string oldpassword, string newpassword);
 
     }
 }
